@@ -1,72 +1,74 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tableau de Bord</title>
-    <link rel="stylesheet" href="src/dashboard.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="src/dashboard.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="sidebar">
-        <h2>Gestion de Formation</h2>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="signup.html">Inscription</a></li>
-            <li><a href="dashboard.html" class="active">Tableau de Bord</a></li>
-            <li><a href="add-participant.html" class="active">Ajouter Participant</a></li>
-            <li><a href="#">Formateurs</a></li>
-            <li><a href="#">Formations</a></li>
-            <li><a href="#">Domaines</a></li>
-        </ul>
+      <h2>Gestion de Formation</h2>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="signup.html">Inscription</a></li>
+        <li><a href="dashboard.html" class="active">Tableau de Bord</a></li>
+        <li>
+          <a href="add-participant.html" class="active">Ajouter Participant</a>
+        </li>
+        <li><a href="#">Formateurs</a></li>
+        <li><a href="#">Formations</a></li>
+        <li><a href="#">Domaines</a></li>
+      </ul>
     </div>
 
     <div class="main-content">
-        <header>
-            <h1>Bienvenue sur votre tableau de bord</h1>
-            <button class="logout-button">Déconnexion</button>
-        </header>
+      <header>
+        <h1>Bienvenue sur votre tableau de bord</h1>
+        <button class="logout-button">Déconnexion</button>
+      </header>
 
-        <div class="cards">
-            <div class="card">
-                <h3>Nombre de Participants</h3>
-                <p>120</p>
-            </div>
-            <div class="card">
-                <h3>Nombre de Formateurs</h3>
-                <p>15</p>
-            </div>
-            <div class="card">
-                <h3>Nombre de Formations</h3>
-                <p>30</p>
-            </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Nombre de Participants</h3>
+          <p>120</p>
         </div>
+        <div class="card">
+          <h3>Nombre de Formateurs</h3>
+          <p>15</p>
+        </div>
+        <div class="card">
+          <h3>Nombre de Formations</h3>
+          <p>30</p>
+        </div>
+      </div>
 
-        <div class="table-container">
-            <h2>Liste des Participants</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Email</th>
-                        <th>Date d'inscription</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Jean Dupont</td>
-                        <td>jean.dupont@example.com</td>
-                        <td>01/01/2025</td>
-                    </tr>
-                    <tr>
-                        <td>Marie Curie</td>
-                        <td>marie.curie@example.com</td>
-                        <td>15/01/2025</td>
-                    </tr>
-                    <!-- Ajoute d'autres participants ici -->
-                </tbody>
-            </table>
-        </div>
+      <div class="table-container">
+        <h2>Liste des Participants</h2>
+        <div id="loader" class="loader"></div>
+        <table id="participants-table">
+          <thead>
+            <tr>
+              <th>Matricule</th>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Date de Naissance</th>
+              <th>Profil</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="loader" class="loader" style="display: none"></td>
+            </tr>
+            <!-- Loader -->
+          </tbody>
+        </table>
+      </div>
     </div>
-</body>
+    <script src="src/dashboard.js"></script>
+  </body>
 </html>
