@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inscription</title>
+    <link rel="stylesheet" href="src/login.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-box">
+        <h2>Inscription</h2>
+        <form id="signup-form">
+          <div class="input-group">
+            <label for="signup-username">Username :</label>
+            <input type="text" id="signup-username" required />
+          </div>
+          <div class="input-group">
+            <label for="signup-email">Email :</label>
+            <input type="email" id="signup-email" required />
+          </div>
+          <div class="input-group">
+            <label for="signup-password">Mot de passe :</label>
+            <input type="password" id="signup-password" required />
+          </div>
+          <div id="loader" class="loader" style="display: none">
+            <div id="loader" class="loader" style="display: none"></div>
+            <!-- Loader -->
+          </div>
+
+          <button type="submit">S'inscrire</button>
+          <p class="toggle-form">
+            Déjà inscrit ? <a href="index.html">Connectez-vous ici</a>
+          </p>
+        </form>
+
+        <!-- Loader -->
+      </div>
+    </div>
+
+    <script src="src/register.js"></script>
+  </body>
+</html>
