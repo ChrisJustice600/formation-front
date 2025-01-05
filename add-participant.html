@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ajouter un Participant</title>
-    <link rel="stylesheet" href="src/dashboard.css">
-    <link rel="stylesheet" href="src/login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="src/dashboard.css" />
+    <link rel="stylesheet" href="src/login.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="sidebar">
-        <h2>Gestion de Formation</h2>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="signup.html">Inscription</a></li>
-            <li><a href="dashboard.html">Tableau de Bord</a></li>
-            <li><a href="add-participant.html" class="active">Ajouter Participant</a></li>
-            <li><a href="#">Formateurs</a></li>
-            <li><a href="#">Formations</a></li>
-            <li><a href="#">Domaines</a></li>
-        </ul>
+      <h2>Gestion de Formation</h2>
+      <ul>
+        <li><a href="dashboard.html">Tableau de Bord</a></li>
+        <li>
+          <a href="add-participant.html" class="active">Ajouter Participant</a>
+        </li>
+        <li><a href="formateur.html">Formateurs</a></li>
+        <li><a href="#">Formations</a></li>
+        <li><a href="#">Domaines</a></li>
+      </ul>
     </div>
 
     <div class="main-content">
-        <header>
-            <h1>Ajouter un Participant</h1>
-        </header>
+      <header>
+        <h1>Ajouter un Participant</h1>
+      </header>
 
-        <form id="participant-form">
-            <div class="input-group">
-                <label for="matricule">Matricule :</label>
-                <input type="text" id="matricule" required />
-            </div>
-            <div class="input-group">
-                <label for="nom">Nom :</label>
-                <input type="text" id="nom" required />
-            </div>
-            <div class="input-group">
-                <label for="prenom">Prénom :</label>
-                <input type="text" id="prenom" required />
-            </div>
-            <div class="input-group">
-                <label for="date_naissance">Date de Naissance :</label>
-                <input type="date" id="date_naissance" required />
-            </div>
-            <div class="input-group">
-                <label for="profil">Profil :</label>
-                <input type="text" id="profil" required />
-            </div>
-            <button type="submit">Ajouter Participant</button>
-            <div id="error-message" style="color: red;"></div>
-        </form>
+      <form id="participant-form">
+        <div class="input-group">
+          <label for="matricule">Matricule :</label>
+          <input type="text" id="matricule" required />
+        </div>
+        <div class="input-group">
+          <label for="nom">Nom :</label>
+          <input type="text" id="nom" required />
+        </div>
+        <div class="input-group">
+          <label for="prenom">Prénom :</label>
+          <input type="text" id="prenom" required />
+        </div>
+        <div class="input-group">
+          <label for="date_naissance">Date de Naissance :</label>
+          <input type="date" id="date_naissance" required />
+        </div>
+        <div class="input-group">
+          <label for="profil">Profil :</label>
+          <input type="text" id="profil" required />
+        </div>
+        <button type="submit">Ajouter Participant</button>
+        <div id="error-message" style="color: red"></div>
+      </form>
     </div>
 
     <script src="src/add-participant.js"></script>
-</body>
+  </body>
 </html>
