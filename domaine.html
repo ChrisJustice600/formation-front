@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Domaines</title>
+    <link rel="stylesheet" href="src/domaine.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Gestion de Formation</h2>
+        <ul>
+            <li><a href="dashboard.html">Tableau de Bord</a></li>
+            <li><a href="add-participant.html">Participants</a></li>
+            <li><a href="formateur.html">Formateurs</a></li>
+            <li><a href="formation.html">Formations</a></li>
+            <li><a href="domaine.html" class="active">Domaines</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>Gestion des Domaines</h1>
+        </header>
+
+        <div class="form-container">
+            <h2>Ajouter un Domaine</h2>
+            <form id="domaine-form">
+                <div class="input-group">
+                    <label for="code_domaine">Code Domaine :</label>
+                    <input type="text" id="code_domaine" required>
+                </div>
+                <div class="input-group">
+                    <label for="nom_domaine">Nom du Domaine :</label>
+                    <input type="text" id="nom_domaine" required>
+                </div>
+                <div class="input-group">
+                    <label for="description">Description :</label>
+                    <textarea id="description" required></textarea>
+                </div>
+                <button type="submit">Ajouter Domaine</button>
+            </form>
+            <div id="error-message" class="error-message"></div>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Rechercher un domaine...">
+        </div>
+
+        <div class="table-container">
+            <h2>Liste des Domaines</h2>
+            <div id="loader" class="loader"></div>
+            <table id="domaines-table">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Nom</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Les domaines seront insérés ici dynamiquement -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="src/domaine.js"></script>
+</body>
+</html> 
