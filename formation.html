@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Formations</title>
+    <link rel="stylesheet" href="src/formation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Gestion de Formation</h2>
+        <ul>
+            <li><a href="dashboard.html">Tableau de Bord</a></li>
+            <li><a href="add-participant.html">Participants</a></li>
+            <li><a href="formateur.html">Formateurs</a></li>
+            <li><a href="formation.html" class="active">Formations</a></li>
+            <li><a href="#">Domaines</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>Gestion des Formations</h1>
+        </header>
+
+        <!-- Formulaire d'ajout de formation -->
+        <div class="form-container">
+            <h2>Ajouter une Formation</h2>
+            <form id="formation-form">
+                <div class="input-group">
+                    <label for="code_formation">Code Formation :</label>
+                    <input type="text" id="code_formation" required>
+                </div>
+                <div class="input-group">
+                    <label for="intitule">Intitulé :</label>
+                    <input type="text" id="intitule" required>
+                </div>
+                <div class="input-group">
+                    <label for="domaine">Domaine :</label>
+                    <input type="text" id="domaine" required>
+                </div>
+                <div class="input-group">
+                    <label for="nombre_jours">Nombre de jours :</label>
+                    <input type="number" id="nombre_jours" required>
+                </div>
+                <div class="input-group">
+                    <label for="annee">Année :</label>
+                    <input type="number" id="annee" required>
+                </div>
+                <div class="input-group">
+                    <label for="mois">Mois :</label>
+                    <input type="number" id="mois" min="1" max="12" required>
+                </div>
+                <div class="input-group">
+                    <label for="formateur">Formateur :</label>
+                    <select id="formateur" required>
+                        <option value="">Sélectionnez un formateur</option>
+                    </select>
+                </div>
+                <button type="submit">Ajouter Formation</button>
+            </form>
+            <div id="error-message" class="error-message"></div>
+        </div>
+
+        <!-- Barre de recherche -->
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Rechercher une formation...">
+        </div>
+
+        <!-- Liste des formations -->
+        <div class="table-container">
+            <h2>Liste des Formations</h2>
+            <div id="loader" class="loader"></div>
+            <table id="formations-table">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Intitulé</th>
+                        <th>Domaine</th>
+                        <th>Durée (jours)</th>
+                        <th>Période</th>
+                        <th>Formateur</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Les formations seront insérées ici dynamiquement -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="src/formation.js"></script>
+</body>
+</html>
