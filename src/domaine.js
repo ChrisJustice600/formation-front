@@ -137,55 +137,27 @@ async function deleteDomaine(id) {
 }
 
 async function editDomaine(id) {
+    const domaineData = {
+        libelle: prompt("Entrez le nouveau libellé du domaine :"),
+        description: prompt("Entrez la nouvelle description du domaine :")
+    };
+
     try {
-        const response = await fetch(`${API_URL}/${id}`);
-        if (!response.ok) throw new Error('Erreur lors de la récupération du domaine');
-        const domaine = await response.json();
+        const response = await fetch(`${API_URL}/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(domaineData)
+        });
 
-        // Remplir le formulaire avec les données existantes
-        document.getElementById('code_domaine').value = domaine.code_domaine;
-        document.getElementById('libelle').value = domaine.libelle;
-        document.getElementById('description').value = domaine.description;
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.message || 'Erreur lors de la mise à jour du domaine');
+        }
 
-        // Modifier le bouton submit et sauvegarder l'ID
-        const form = document.getElementById('domaine-form');
-        const submitButton = form.querySelector('button[type="submit"]');
-        submitButton.textContent = 'Modifier Domaine';
-        form.dataset.editId = id;
-
-        // Modifier le gestionnaire de soumission du formulaire
-        form.onsubmit = async (e) => {
-            e.preventDefault();
-            const domaineData = {
-                code_domaine: document.getElementById('code_domaine').value,
-                libelle: document.getElementById('libelle').value,
-                description: document.getElementById('description').value
-            };
-
-            try {
-                const updateResponse = await fetch(`${API_URL}/${id}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(domaineData)
-                });
-
-                if (!updateResponse.ok) {
-                    const error = await updateResponse.json();
-                    throw new Error(error.message || 'Erreur lors de la modification du domaine');
-                }
-
-                await fetchDomaines();
-                form.reset();
-                submitButton.textContent = 'Ajouter Domaine';
-                form.onsubmit = null; // Réinitialiser le gestionnaire d'événements
-                alert('Domaine modifié avec succès !');
-            } catch (error) {
-                console.error('Erreur:', error);
-                document.getElementById('error-message').textContent = error.message;
-            }
-        };
+        await fetchDomaines();
+        alert('Domaine mis à jour avec succès !');
     } catch (error) {
         console.error('Erreur:', error);
         document.getElementById('error-message').textContent = error.message;

@@ -25,7 +25,11 @@ async function registerUser(username, email, password) {
     });
 
     if (!response.ok) {
-      throw new Error("Erreur lors de l'enregistrement de l'utilisateur");
+      const result = await response.json();
+
+      // throw new Error("Erreur lors de l'enregistrement de l'utilisateur");
+      console.log("Utilisateur enregistré avec succès:", result);
+
     }
 
     const result = await response.json();

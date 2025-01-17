@@ -130,9 +130,26 @@ function editFormation(id) {
     console.log('Éditer formation:', id);
 }
 
-function deleteFormation(id) {
+async function deleteFormation(id) {
     if (confirm('Êtes-vous sûr de vouloir supprimer cette formation ?')) {
-        // Implémenter la logique de suppression
-        console.log('Supprimer formation:', id);
+        try {
+            const response = await fetch(`${API_URL}/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                const error = await response.json();
+                throw new Error(error.message || 'Erreur lors de la suppression de la formation');
+            }
+
+            await fetchFormations();
+            alert('Formation supprimée avec succès !');
+        } catch (error) {
+            console.error('Erreur:', error);
+            document.getElementById('error-message').textContent = error.message;
+        }
     }
 }
